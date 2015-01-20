@@ -77,7 +77,8 @@ set nofen
 set fdl=10
 
 " tab转化为4个字符
-set expandtab
+"set expandtab
+set noexpandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
@@ -198,8 +199,8 @@ let OmniCpp_MayCompleteScope = 1
 let OmniCpp_ShowPrototypeInAbbr = 0 
 let OmniCpp_SelectFirstItem = 2 
 " c-j自动补全，当补全菜单打开时，c-j,k上下选择
-imap <expr> <c-j>      pumvisible()?"\<C-N>":"\<C-X><C-O>"
-imap <expr> <c-k>      pumvisible()?"\<C-P>":"\<esc>"
+"imap <expr> <c-j>      pumvisible()?"\<C-N>":"\<C-X><C-O>"
+"imap <expr> <c-k>      pumvisible()?"\<C-P>":"\<esc>"
 " f:文件名补全，l:行补全，d:字典补全，]:tag补全
 imap <C-]>             <C-X><C-]>
 imap <C-F>             <C-X><C-F>
