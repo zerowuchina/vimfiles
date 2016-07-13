@@ -3,7 +3,8 @@ let mapleader = ";"    " 比较习惯用;作为命令前缀，右手小拇指直
 " nmap <space> :
 
 " 快捷打开编辑vimrc文件的键盘绑定"
-map <silent> <leader>ee :e $MYVIMRC<cr>
+" map <silent> <leader>ee :e $MYVIMRC<cr>
+map <silent> <leader>ee :e $VIM/vimfiles/.vimrc<cr>
 " autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 
 " 判断操作系统
@@ -144,7 +145,7 @@ endif
 
 " 状态栏
 set laststatus=2      " 总是显示状态栏
-set listchars=tab:>-,trail:.,extends:>,precedes:<,eol:$
+set listchars=tab:>-,trail:.,extends:>,precedes:<,eol:¶
 highlight StatusLine cterm=bold ctermfg=yellow ctermbg=blue
 " 获取当前路径，将$HOME转化为~
 function! CurDir()
