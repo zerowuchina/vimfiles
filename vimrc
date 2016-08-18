@@ -3,8 +3,8 @@ let mapleader = ";"    " 比较习惯用;作为命令前缀，右手小拇指直
 " nmap <space> :
 
 " 快捷打开编辑vimrc文件的键盘绑定"
-" map <silent> <leader>ee :e $MYVIMRC<cr>
-map <silent> <leader>ee :e $VIM/vimfiles/.vimrc<cr>
+map <silent> <leader>ee :e $MYVIMRC<cr>
+"map <silent> <leader>ee :e $VIM/vimfiles/.vimrc<cr>
 " autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 
 " 判断操作系统
@@ -24,14 +24,14 @@ endif
 set nocompatible    " 关闭兼容模式
 filetype off
 if (!g:isWin)
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 else
     set rtp+=$VIM/vimfiles/bundle/vundle/
-    call vundle#rc('$VIM/vimfiles/bundle')
+    call vundle#begin('$VIM/vimfiles/bundle')
 endif
 
-Bundle 'gmarik/vundle'
+Bundle 'VundleVim/Vundle.vim'
 " vim-script repos
 "Bundle 'bufexplorer.zip'
 Bundle 'vimcdoc'
@@ -49,6 +49,7 @@ Bundle 'The-NERD-Commenter'
 Bundle 'abolish.vim'
 Bundle 'closetag.vim'
 Bundle 'surround.vim'
+call vundle#end()
 
 syntax enable       " 语法高亮
 filetype plugin on  " 文件类型插件
