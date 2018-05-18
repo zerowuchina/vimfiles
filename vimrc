@@ -33,22 +33,25 @@ endif
 
 Bundle 'VundleVim/Vundle.vim'
 " vim-script repos
-"Bundle 'bufexplorer.zip'
-Bundle 'vimcdoc'
 Bundle 'Align'
-"Bundle 'taglist.vim'
-"Bundle 'cscope.vim'
 Bundle 'TabBar'
-Bundle 'Emmet.vim'
-Bundle 'EasyMotion'
-Bundle 'Auto-Pairs'
-Bundle 'unimpaired.vim'
-Bundle 'OmniCppComplete'
-Bundle 'The-NERD-tree'
-Bundle 'The-NERD-Commenter'
-Bundle 'abolish.vim'
+"Bundle 'cscope.vim'
+"Bundle 'taglist.vim'
 Bundle 'closetag.vim'
-Bundle 'surround.vim'
+"Bundle 'OmniCppComplete'
+"Bundle 'bufexplorer.zip'
+Bundle 'mattn/emmet-vim'
+Bundle 'alvan/vim-closetag'
+Bundle 'yianwillis/vimcdoc'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'easymotion/vim-easymotion'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+
 call vundle#end()
 
 syntax enable       " 语法高亮
@@ -108,12 +111,12 @@ if (g:isGUI)
     set lines=25
 
     set cursorline
-    colorscheme wombat
+    colorscheme desert
     hi cursorline guibg=#333333
     hi CursorColumn guibg=#333333
     if (g:isWin)
-        set guifont=Consolas:h10
-        "set guifont=YaHei\ Consolas\ Hybrid:h10
+        "set guifont=Consolas:h12
+        set guifont=YaHei\ Consolas\ Hybrid:h12
 
         set encoding=utf-8
 		set fileencodings=utf-8,gb2312,ucs-bom,euc-cn,euc-tw,gb18030,gbk,cp936
@@ -123,9 +126,10 @@ if (g:isGUI)
     	language messages zh_cn.utf-8
 
     else
-        set guifontwide=Consolas\ 10
-        "set guifont=DejaVu\ Sans\ Mono\ 10
-        "set gfw=DejaVu\ Sans\ Mono\ 10
+        "set guifontwide=Consolas\ 12
+        "set guifont=DejaVu\ Sans\ Mono\ 12
+		set guifont=Consolas\ 12
+		"set gfw=DejaVu\ Sans\ Mono\ 12
 
         set encoding=utf8
     	set fileencodings=utf8,gb2312,gb18030,ucs-bom,latin1
@@ -159,8 +163,8 @@ set statusline=[%n]\ %F%m%r%h\ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%B%{((&fenc
 "au BufWinEnter * let w:m2=matchadd('Underlined', '\%>' . 80 . 'v.\+', -1)
 
 autocmd FileType java comp javac
-autocmd filetype cs compile cs
-
+autocmd FileType cs comp cs
+autocmd FileType php comp php
 " 根据给定方向搜索当前光标下的单词，结合下面两个绑定使用
 function! VisualSearch(direction) range
     let l:saved_reg = @"
